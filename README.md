@@ -8,4 +8,6 @@ bash-4.4$ jq ".[$(shuf -i 0-9999 -n 1)]" mingju.json
   "contents": "一骑红尘妃子笑，无人知是荔枝来。",
   "source": "杜牧《过华清宫绝句三首》"
 }
+bash-4.4$ jq ".[$(shuf -i 0-9999 -n 1)]" mingju.json | jq -r '.contents + " -- " + .source'
+此情可待成追忆？只是当时已惘然。 -- 李商隐《锦瑟》
 ```
