@@ -33,13 +33,15 @@
 ;; Example:
 ;;
 ;; (mingju)
-;; => ("滚滚长江东逝水，浪花淘尽英雄。" . "杨慎《临江仙·滚滚长江东逝水》")
+;; => ("滚滚长江东逝水，浪花淘尽英雄。" "杨慎《临江仙·滚滚长江东逝水》")
 
 ;;;###autoload
 (defun mingju (&optional action)
   "随机返回一条古诗文名句.
 ACTION 可为 nil 或 insert 或 message.
-交互模式下，ACTION 默认为 message，但加了 Prefix Argument 时，则为 insert."
+交互模式下，ACTION 默认为 message，但加了 Prefix Argument 时，则为 insert.
+
+注意依赖 jq(1)."
   (interactive
    (list (if current-prefix-arg
              'insert
@@ -62,7 +64,7 @@ ACTION 可为 nil 或 insert 或 message.
            (insert (format "%s -- %s\n" contents source)))
           ((eq action 'message)
            (message "%s -- %s" contents source)))
-    (cons contents source)))
+    (list contents source)))
 
 (provide 'mingju)
 ;;; mingju.el ends here
