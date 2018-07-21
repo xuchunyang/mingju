@@ -6,4 +6,4 @@
 
 JSON=$(dirname "$(realpath "$0")")/mingju.json
 RAND=$(shuf -i 0-9999 -n 1)
-jq ".[$RAND]" "$JSON" | jq -r '.contents + "\n\t\t-- " + .source'
+jq -r ".[$RAND] | .contents + \"\\n\\t\\t-- \" + .source" "$JSON"
