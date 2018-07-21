@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 依赖:
+# - jq(1)
+# - GNU Coreutils 的 realpath(1)
+
+JSON=$(dirname "$(realpath "$0")")/mingju.json
+RAND=$(shuf -i 0-9999 -n 1)
+jq ".[$RAND]" "$JSON" | jq -r '.contents + "\n\t\t-- " + .source'
