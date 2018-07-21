@@ -15,3 +15,11 @@ bash-4.4$ jq ".[$(shuf -i 0-9999 -n 1)]" mingju.json | jq -r '.contents + " -- "
 ## Emacs Users
 
 `M-x mingju` 随机获得一条名句。
+
+### Eshell Users
+
+``` emacs-lisp
+(setq eshell-banner-message
+      '(concat (mapconcat #'identity (mingju) " -- ")
+               "\n\n"))
+```
