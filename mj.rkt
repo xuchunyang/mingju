@@ -1,3 +1,4 @@
+;; 依赖 Racket v6.12 或以后版本
 #lang racket
 (require json
          web-server/http
