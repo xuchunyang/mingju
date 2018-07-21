@@ -33,3 +33,19 @@ bash-4.4$ jq ".[$(shuf -i 0-9999 -n 1)]" mingju.json | jq -r '.contents + " -- "
 人生如逆旅，我亦是行人。
 		-- 苏轼《临江仙·送钱穆父》
 ```
+
+## HTTP API
+
+- https://xuchunyang.me/racket/mj.rkt
+- https://xuchunyang.me/racket/mj.rkt?format=json
+
+``` shell
+~ $ curl https://xuchunyang.me/racket/mj.rkt
+一生大笑能几回，斗酒相逢须醉倒。
+		-- 岑参《凉州馆中与诸判官夜集》
+~ $ curl -s 'https://xuchunyang.me/racket/mj.rkt?format=json' | jq
+{
+  "contents": "曾经沧海难为水，除却巫山不是云。",
+  "source": "元稹《离思五首·其四》"
+}
+```
