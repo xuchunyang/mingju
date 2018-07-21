@@ -9,9 +9,7 @@
 
 (define (crawl url)
   (define-values (status headers html)
-    (http-sendrecv/url
-     (string->url
-      "https://so.gushiwen.org/mingju/default.aspx?p=1&c=&t=")))
+    (http-sendrecv/url (string->url url)))
   (define xexp (html->xexp html))
   (let loop ([items ((sxpath "(//div[@class='left']//div[@class='cont'])//a/text()") xexp)]
              [result empty])
