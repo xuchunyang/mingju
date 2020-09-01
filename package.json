@@ -1,0 +1,22 @@
+{
+  "name": "mingju",
+  "version": "0.0.0",
+  "description": "数据采集自 [经典诗句_古诗文名句_古诗文网](https://so.gushiwen.org/mingju/)，共一万条。",
+  "main": "none",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuchunyang/mingju.git"
+  },
+  "author": "Xu Chunyang",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/xuchunyang/mingju/issues"
+  },
+  "homepage": "https://github.com/xuchunyang/mingju#readme",
+  "devDependencies": {
+    "mongodb": "^3.6.0"
+  }
+}
