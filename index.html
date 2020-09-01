@@ -12,13 +12,18 @@
       (async () => {
         output.textContent = "Fetching...";
         try {
-          const resp = await fetch("api/random");
+          const resp = await fetch("api/get?id=" + randomNumber(10000));
           const json = await resp.json();
           output.textContent = `${json.contents} -- ${json.source}`;
         } catch(e) {
           output.textContent = `Error: ${e.message}`;
         }
       })();
+
+      // Return a random number within [0, LIMIT)
+      function randomNumber(limit) {
+        return Math.floor(Math.random()*limit);
+      }
     </script>
   </body>
 </html>
