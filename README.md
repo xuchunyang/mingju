@@ -37,18 +37,32 @@ $ jq ".[0]" mingju.json
 		-- 苏轼《临江仙·送钱穆父》
 ```
 
-## HTTP API
+## Web Users
 
-- https://xuchunyang.me/racket/mj.rkt
-- https://xuchunyang.me/racket/mj.rkt?format=json
+https://mingju.vercel.app/
 
-``` shell
-~ $ curl https://xuchunyang.me/racket/mj.rkt
-一生大笑能几回，斗酒相逢须醉倒。
-		-- 岑参《凉州馆中与诸判官夜集》
-~ $ curl -s 'https://xuchunyang.me/racket/mj.rkt?format=json' | jq
+## HTTP API Users
+
+总共有一万条名句，根据 ID 获得一条记录，ID 在 [0, 10000) 之间：
+
+```
+$ curl https://mingju.vercel.app/api/get?id=18
 {
-  "contents": "曾经沧海难为水，除却巫山不是云。",
-  "source": "元稹《离思五首·其四》"
+  "_id": "5f4e17aa6aed639f5c44258d",
+  "contents": "春宵一刻值千金，花有清香月有阴。",
+  "source": "苏轼《春宵·春宵一刻值千金》",
+  "id": 18
+}
+```
+
+随机获得一句（注意这个 API 是由服务器动态生成的，没法缓存，而如果用 `api/get?id=random` 则 CDN 有机会缓存）：
+
+```
+$ curl https://mingju.vercel.app/api/random
+{
+  "_id": "5f4e17aa6aed639f5c442885",
+  "contents": "不论平地与山尖，无限风光尽被占。",
+  "source": "罗隐《蜂》",
+  "id": 778
 }
 ```
