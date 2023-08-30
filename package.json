@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/xuchunyang/mingju#readme",
   "devDependencies": {
-    "mongodb": "^3.6.0"
+    "mongodb": "^3.6.10"
   }
 }
